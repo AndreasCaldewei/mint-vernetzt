@@ -9,7 +9,7 @@ const Slider = (props: Props) => {
 
   return (
     <>
-      <ScrollMenu>{children ?? []}</ScrollMenu>
+      <ScrollMenu>{children ?? ([] as any)}</ScrollMenu>
     </>
   )
 }
