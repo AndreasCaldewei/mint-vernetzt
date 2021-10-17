@@ -10,6 +10,7 @@ import {
 import LoginForm from "app/auth/components/LoginForm"
 
 import "app/core/styles/index.css"
+import Navbar from "../../components/atoms/Navbar"
 
 export default function App({ Component, pageProps }: AppProps) {
   const getLayout = Component.getLayout || ((page) => page)
@@ -19,7 +20,7 @@ export default function App({ Component, pageProps }: AppProps) {
       FallbackComponent={RootErrorFallback}
       onReset={useQueryErrorResetBoundary().reset}
     >
-      {getLayout(<Component {...pageProps} />)}
+      {<>{getLayout(<Component {...pageProps} />)}</>}
     </ErrorBoundary>
   )
 }

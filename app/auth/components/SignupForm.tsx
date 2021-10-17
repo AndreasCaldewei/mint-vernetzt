@@ -3,20 +3,18 @@ import { LabeledTextField } from "app/core/components/LabeledTextField"
 import { Form, FORM_ERROR } from "app/core/components/Form"
 import signup from "app/auth/mutations/signup"
 import { Signup } from "app/auth/validations"
+import Button from "../../../components/atoms/Button"
 
 type SignupFormProps = {
   onSuccess?: () => void
 }
 
 export const SignupForm = (props: SignupFormProps) => {
-  const [signupMutation] = useMutation(signup)
+  const [signupMutation, { isLoading }] = useMutation(signup)
 
   return (
     <div>
-      <h1>Create an Account</h1>
-
       <Form
-        submitText="Create Account"
         schema={Signup}
         initialValues={{ email: "", password: "" }}
         onSubmit={async (values) => {
@@ -33,8 +31,13 @@ export const SignupForm = (props: SignupFormProps) => {
           }
         }}
       >
-        <LabeledTextField name="email" label="Email" placeholder="Email" />
-        <LabeledTextField name="password" label="Password" placeholder="Password" type="password" />
+        <LabeledTextField name="email" label="Email address"></LabeledTextField>
+
+        <LabeledTextField name="password" label="Password" type="password"></LabeledTextField>
+
+        <div>
+          <Button type="submit">Create Account</Button>
+        </div>
       </Form>
     </div>
   )

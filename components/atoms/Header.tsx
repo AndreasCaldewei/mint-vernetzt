@@ -1,9 +1,8 @@
+import LabeledTextField from "../../app/core/components/LabeledTextField"
+import Form from "../../app/core/components/Form"
+
 const Header = () => {
-  return (
-    <>
-      <h1>Header</h1>
-    </>
-  )
+  return <></>
 }
 
 export default Header

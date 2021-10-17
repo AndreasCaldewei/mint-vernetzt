@@ -24,7 +24,10 @@
     ]
   },
   "dependencies": {
+    "@headlessui/react": "1.4.1",
+    "@heroicons/react": "1.0.4",
     "@prisma/client": "3.2.1",
+    "@tailwindcss/forms": "0.3.4",
     "autoprefixer": "10.3.7",
     "blitz": "0.41.1",
     "final-form": "4.20.4",
