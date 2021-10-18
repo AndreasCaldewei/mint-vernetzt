@@ -6,6 +6,7 @@ export interface DashboardCard {
   imageUrl?: string
   metadata?: any
   title: string
+  description: string
 }
 
 interface Props extends BaseProps {
@@ -19,10 +20,10 @@ const DashboardCardRow = (props: Props) => {
   return (
     <>
       <div className="mb-2">
-        <h1 className="ml-1 text-xl font-bold">{label}</h1>
+        <h1 className="mt-16 mb-3 ml-2 text-primary m-auto text-6xl font-title">{label}</h1>
         <Slider>
           {cards.map((card, index) => (
-            <Card key={index} title={card.title}></Card>
+            <Card key={index} title={card.title} description={card.description}></Card>
           ))}
         </Slider>
       </div>
