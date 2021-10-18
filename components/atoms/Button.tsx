@@ -1,5 +1,5 @@
 import { forwardRef } from "react"
-import { BaseProps } from "../interface"
+import { BaseProps } from "components/interface"
 
 interface Props extends BaseProps {
   type: "button" | "submit" | "reset" | undefined
