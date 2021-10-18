@@ -23,7 +23,12 @@ const DashboardCardRow = (props: Props) => {
         <h1 className="mt-16 mb-3 ml-2 text-primary m-auto text-6xl font-title">{label}</h1>
         <Slider>
           {cards.map((card, index) => (
-            <Card key={index} title={card.title} description={card.description}></Card>
+            <Card
+              key={index}
+              imageUrl={card.imageUrl}
+              title={card.title}
+              description={card.description}
+            ></Card>
           ))}
         </Slider>
       </div>

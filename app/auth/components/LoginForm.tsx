@@ -1,4 +1,4 @@
-import { AuthenticationError, Link, useMutation, Routes } from "blitz"
+import { AuthenticationError, Link, useMutation, Routes, Head } from "blitz"
 import { LabeledTextField } from "app/core/components/LabeledTextField"
 import { Form, FORM_ERROR } from "app/core/components/Form"
 import login from "app/auth/mutations/login"
@@ -52,7 +52,7 @@ export const LoginForm = (props: LoginFormProps) => {
           </div>
 
           <div className="text-sm">
-            <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
+            <a href="forgot-password" className="font-medium text-indigo-600 hover:text-indigo-500">
               Forgot your password?
             </a>
           </div>

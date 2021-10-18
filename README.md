@@ -82,7 +82,7 @@ mint-vernetzt
 │   │   │   └── signup.ts
 │   │   ├── pages/
 │   │   │   ├── forgot-password.tsx
-│   │   │   ├── login.tsx
+│   │   │   ├── signin.tsx
 │   │   │   ├── reset-password.tsx
 │   │   │   └── signup.tsx
 │   │   └── validations.ts

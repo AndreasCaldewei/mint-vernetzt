@@ -13,7 +13,7 @@ const BigCard = (props: Props) => {
         <div className={"rounded bg-white shadow-md mt-14 p-0 mr-16"}>
           <div>
             <iframe
-              className="w-full h-[600px]"
+              className="w-full h-[600px] rounded-tl rounded-tr"
               src="https://www.youtube.com/embed/BAcXr9O4UHo"
               title="YouTube video player"
               frameBorder="0"
