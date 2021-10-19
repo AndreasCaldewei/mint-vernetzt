@@ -1,4 +1,4 @@
-import { BlitzPage, Head, useMutation } from "blitz"
+import { BlitzPage, useMutation } from "blitz"
 import Layout from "app/core/layouts/Layout"
 import { LabeledTextField } from "app/core/components/LabeledTextField"
 import { Form, FORM_ERROR } from "app/core/components/Form"
@@ -10,14 +10,6 @@ const ForgotPasswordPage: BlitzPage = () => {
 
   return (
     <div>
-      <Head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
       <h1>Forgot your password?</h1>
 
       {isSuccess ? (
