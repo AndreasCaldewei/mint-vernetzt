@@ -57,16 +57,16 @@ function Navbar() {
       >
         {({ open }) => (
           <>
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="mx-auto px-4 sm:px-6 lg:px-8">
               <div className="relative flex justify-between xl:grid xl:grid-cols-12 lg:gap-8">
-                <div className="flex md:absolute md:left-0 md:inset-y-0 lg:static xl:col-span-2">
-                  <div className="flex-shrink-0 flex items-center">
+                <div className="flex md:absolute md:static md:inset-y-0 lg:static xl:static">
+                  <div className="flex-shrink-0 flex justify-items-start">
                     <a href="#">
                       <h1 className="text-white text-6xl font-title">MINTFLIX</h1>
                     </a>
                   </div>
                 </div>
-                <div className="min-w-0 flex-1 md:px-8 lg:px-0 xl:col-span-6">
+                {/* <div className="min-w-0 flex-1 md:px-8 lg:px-0 xl:col-span-6">
                   <div className="flex items-center px-6 py-4 md:max-w-3xl md:mx-auto lg:max-w-none lg:mx-0 xl:px-0">
                     <div className="w-full">
                       <label htmlFor="search" className="sr-only">
@@ -86,7 +86,7 @@ function Navbar() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
                 <div className="flex items-center md:absolute md:right-0 md:inset-y-0 lg:hidden">
                   {/* Mobile menu button */}
                   <Popover.Button className="-mx-2 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary2">
@@ -94,11 +94,14 @@ function Navbar() {
                     {open ? (
                       <XIcon className="block h-6 w-6" aria-hidden="true" />
                     ) : (
-                      <MenuIcon className="block h-6 w-6" aria-hidden="true" />
+                      <MenuIcon
+                        className="block h-6 w-6 fill-current text-white"
+                        aria-hidden="true"
+                      />
                     )}
                   </Popover.Button>
                 </div>
-                <div className="hidden lg:flex lg:items-center lg:justify-end xl:col-span-4">
+                <div className="hidden lg:flex lg:items-center lg:justify-end xl:col-span-10">
                   <a
                     href="#"
                     className="ml-5 flex-shrink-0 bg-white rounded-full p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary2"

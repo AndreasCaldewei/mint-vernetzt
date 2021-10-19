@@ -12,6 +12,7 @@ module.exports = {
       primary5: "#DBE1EA",
       secondary: "#B16FAB",
       tertiary: "#EFE8E6",
+      tertiary2: "#F7F3F2",
       success: "#00A87A",
       warning: "#FCC433",
       danger: "#EE7775",
@@ -32,6 +33,22 @@ module.exports = {
         14: "14",
         15: "15",
       },
+    },
+    screens: {
+      sm: "640px",
+      // => @media (min-width: 640px) { ... }
+
+      md: "768px",
+      // => @media (min-width: 768px) { ... }
+
+      lg: "1024px",
+      // => @media (min-width: 1024px) { ... }
+
+      xl: "1280px",
+      // => @media (min-width: 1280px) { ... }
+
+      "2xl": "1536px",
+      // => @media (min-width: 1536px) { ... }
     },
   },
   variants: {
