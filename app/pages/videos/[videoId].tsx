@@ -3,6 +3,8 @@ import { Head, Link, useRouter, useQuery, useParam, BlitzPage, useMutation, Rout
 import Layout from "app/core/layouts/Layout"
 import getVideo from "app/videos/queries/getVideo"
 import deleteVideo from "app/videos/mutations/deleteVideo"
+import VideoLayout from "../../videos/layouts/VideoLayout"
+import Button from "../../../components/atoms/Button"
 
 export const Video = () => {
   const router = useRouter()
@@ -16,26 +18,50 @@ export const Video = () => {
         <title>MINTFLIX | Video {video.title}</title>
       </Head>
 
-      <div>
-        <h1>Video {video.id}</h1>
-        <pre>{JSON.stringify(video, null, 2)}</pre>
-
-        <Link href={Routes.EditVideoPage({ videoId: video.id })}>
-          <a>Edit</a>
+      <p className={"mt-3"}>
+        <Link href={Routes.ArticlesPage()}>
+          <a className={"cursor-pointer text-primary underline ml-4 pt-10 mb-7"}>
+            Zurück zur Artikelübersicht
+          </a>
         </Link>
+      </p>
 
-        <button
-          type="button"
-          onClick={async () => {
-            if (window.confirm("This will be deleted")) {
-              await deleteVideoMutation({ id: video.id })
-              router.push(Routes.VideosPage())
-            }
-          }}
-          style={{ marginLeft: "0.5rem" }}
+      <div>
+        <h3
+          className={
+            "font-montserrat text-primary font-bold text-5xl bg-primary5 -mx-2 mb-5 mt-5 py-4 pl-10"
+          }
         >
-          Delete
-        </button>
+          {video.title}
+        </h3>
+        <p>
+          <Link href={Routes.VideosPage()}>
+            <a className={"cursor-pointer text-primary underline ml-4 mt-4 mb-10"}>
+              Weitere Videos
+            </a>
+          </Link>
+        </p>
+
+        <div className={"ml-3 mt-3 mb-1 w-1/3"}>
+          <Link href={Routes.EditVideoPage({ videoId: video.id })} passHref>
+            <Button type={"button"}>
+              <a>Bearbeiten</a>
+            </Button>
+          </Link>
+
+          <Button
+            type="button"
+            onClick={async () => {
+              if (window.confirm("This will be deleted")) {
+                await deleteVideoMutation({ id: video.id })
+                router.push(Routes.ArticlesPage())
+              }
+            }}
+            style={{ marginLeft: "0.5rem" }}
+          >
+            Löschen
+          </Button>
+        </div>
       </div>
     </>
   )
@@ -44,12 +70,6 @@ export const Video = () => {
 const ShowVideoPage: BlitzPage = () => {
   return (
     <div>
-      <p>
-        <Link href={Routes.VideosPage()}>
-          <a>Videos</a>
-        </Link>
-      </p>
-
       <Suspense fallback={<div>Loading...</div>}>
         <Video />
       </Suspense>
@@ -58,6 +78,10 @@ const ShowVideoPage: BlitzPage = () => {
 }
 
 ShowVideoPage.authenticate = true
-ShowVideoPage.getLayout = (page) => <Layout>{page}</Layout>
+ShowVideoPage.getLayout = (page) => (
+  <Layout>
+    <VideoLayout>{page}</VideoLayout>
+  </Layout>
+)
 
 export default ShowVideoPage

@@ -14,40 +14,50 @@ const NewArticlePage: BlitzPage = () => {
         <title>MINTFLIX | Artikel schreiben</title>
       </Head>
 
-      <p>
+      <p className={"mt-3"}>
         <Link href={Routes.ArticlesPage()}>
-          <a>Zurück</a>
+          <a className={"cursor-pointer text-primary underline ml-4 pt-10 mb-7"}>
+            Zurück zur Artikelübersicht
+          </a>
         </Link>
       </p>
 
-      <h3 className={"font-montserrat text-primary font-bold text-2xl"}>Artikel schreiben</h3>
+      <h3
+        className={
+          "font-montserrat text-primary font-bold text-5xl bg-primary5 -mx-2 mb-5 mt-5 py-4 pl-10"
+        }
+      >
+        Artikel schreiben
+      </h3>
 
-      <ArticleForm
-        submitText="Artikel veröffentlichen"
-        // TODO use a zod schema for form validation
-        //  - Tip: extract mutation's schema into a shared `validations.ts` file and
-        //         then import and use it here
-        // schema={CreateArticle}
-        // initialValues={{}}
-        onSubmit={async (values) => {
-          try {
-            const article = await createArticleMutation(values)
-            router.push(Routes.ShowArticlePage({ articleId: article.id }))
-          } catch (error: any) {
-            console.error(error)
-            return {
-              [FORM_ERROR]: error.toString(),
+      <div className={"ml-4"}>
+        <ArticleForm
+          submitText="Artikel veröffentlichen"
+          // TODO use a zod schema for form validation
+          //  - Tip: extract mutation's schema into a shared `validations.ts` file and
+          //         then import and use it here
+          // schema={CreateArticle}
+          // initialValues={{}}
+          onSubmit={async (values) => {
+            try {
+              const article = await createArticleMutation(values)
+              router.push(Routes.ShowArticlePage({ articleId: article.id }))
+            } catch (error: any) {
+              console.error(error)
+              return {
+                [FORM_ERROR]: error.toString(),
+              }
             }
-          }
-        }}
-      />
+          }}
+        />
+      </div>
     </div>
   )
 }
 
 NewArticlePage.authenticate = true
 NewArticlePage.getLayout = (page) => (
-  <Layout>
+  <Layout title={"MINTFLIX | Neuen Artikle schreiben"}>
     <ArticleLayout>{page}</ArticleLayout>
   </Layout>
 )

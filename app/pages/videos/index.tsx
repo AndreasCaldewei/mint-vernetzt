@@ -2,6 +2,9 @@ import { Suspense } from "react"
 import { Head, Link, usePaginatedQuery, useRouter, BlitzPage, Routes } from "blitz"
 import Layout from "app/core/layouts/Layout"
 import getVideos from "app/videos/queries/getVideos"
+import Sidebar from "../../../components/atoms/Sidebar"
+import BigCard from "../../../components/atoms/BigCard"
+import DashboardCardRow from "../../../components/molecules/dashboard/DashboardCardRow"
 
 const ITEMS_PER_PAGE = 100
 
@@ -19,22 +22,18 @@ export const VideosList = () => {
 
   return (
     <div>
-      <ul>
-        {videos.map((video) => (
-          <li key={video.id}>
-            <Link href={Routes.ShowVideoPage({ videoId: video.id })}>
-              <a>{video.name}</a>
-            </Link>
-          </li>
-        ))}
-      </ul>
-
-      <button disabled={page === 0} onClick={goToPreviousPage}>
-        Previous
-      </button>
-      <button disabled={!hasMore} onClick={goToNextPage}>
-        Next
-      </button>
+      <Sidebar></Sidebar>
+      <div className={"w-full"}>
+        <div className="ml-16">
+          <BigCard
+            title={"Der heiße Scheiß"}
+            body={
+              "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+            }
+          ></BigCard>
+          <DashboardCardRow label={"Videos"} cards={videos}></DashboardCardRow>
+        </div>
+      </div>
     </div>
   )
 }
@@ -47,12 +46,6 @@ const VideosPage: BlitzPage = () => {
       </Head>
 
       <div>
-        <p>
-          <Link href={Routes.NewVideoPage()}>
-            <a>Create Video</a>
-          </Link>
-        </p>
-
         <Suspense fallback={<div>Loading...</div>}>
           <VideosList />
         </Suspense>

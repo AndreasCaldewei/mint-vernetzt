@@ -19,6 +19,7 @@ import { Menu, Popover, Transition } from "@headlessui/react"
 import { SearchIcon } from "@heroicons/react/solid"
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline"
 import exp from "constants"
+import { Link, Routes } from "blitz"
 
 const user = {
   name: "Chelsea Hagon",
@@ -147,12 +148,21 @@ function Navbar() {
                     </Transition>
                   </Menu>
 
-                  <a
-                    href="#"
-                    className="ml-6 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary2"
-                  >
-                    New Project
-                  </a>
+                  <Link href={Routes.NewArticlePage()}>
+                    <a className="ml-6 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary2">
+                      + Artikel
+                    </a>
+                  </Link>
+                  <Link href={Routes.NewVideoPage()}>
+                    <a className="ml-6 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary2">
+                      + Video
+                    </a>
+                  </Link>
+                  <Link href={Routes.NewProjectPage()}>
+                    <a className="ml-6 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary2">
+                      + Projekt
+                    </a>
+                  </Link>
                 </div>
               </div>
             </div>

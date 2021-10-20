@@ -2,7 +2,9 @@ import { Suspense } from "react"
 import { Head, Link, usePaginatedQuery, useRouter, BlitzPage, Routes } from "blitz"
 import Layout from "app/core/layouts/Layout"
 import getArticles from "app/articles/queries/getArticles"
-import ArticleLayout from "../../articles/layouts/ArticleLayout"
+import Sidebar from "../../../components/atoms/Sidebar"
+import BigCard from "../../../components/atoms/BigCard"
+import DashboardCardRow from "../../../components/molecules/dashboard/DashboardCardRow"
 
 const ITEMS_PER_PAGE = 100
 
@@ -15,29 +17,20 @@ export const ArticlesList = () => {
     take: ITEMS_PER_PAGE,
   })
 
-  const goToPreviousPage = () => router.push({ query: { page: page - 1 } })
-  const goToNextPage = () => router.push({ query: { page: page + 1 } })
-
   return (
     <div>
-      <h3 className={"font-montserrat text-primary font-bold text-2xl"}>Artikel</h3>
-      <ul>
-        {articles.map((article) => (
-          <li key={article.id}>
-            <Link href={Routes.ShowArticlePage({ articleId: article.id })}>
-              <a>{article.title}</a>
-            </Link>
-            <p>{article.body}</p>
-          </li>
-        ))}
-      </ul>
-
-      <button disabled={page === 0} onClick={goToPreviousPage}>
-        Vorherige Seite
-      </button>
-      <button disabled={!hasMore} onClick={goToNextPage}>
-        Nächste Seite
-      </button>
+      <Sidebar></Sidebar>
+      <div className={"w-full"}>
+        <div className="ml-16">
+          <BigCard
+            title={"Der heiße Scheiß"}
+            body={
+              "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+            }
+          ></BigCard>
+          <DashboardCardRow label={"Artikel"} cards={articles}></DashboardCardRow>
+        </div>
+      </div>
     </div>
   )
 }
@@ -46,16 +39,10 @@ const ArticlesPage: BlitzPage = () => {
   return (
     <>
       <Head>
-        <title>Articles</title>
+        <title>Artikel</title>
       </Head>
 
       <div>
-        <p>
-          <Link href={Routes.NewArticlePage()}>
-            <a>Artikel schreiben</a>
-          </Link>
-        </p>
-
         <Suspense fallback={<div>Loading...</div>}>
           <ArticlesList />
         </Suspense>
@@ -65,10 +52,6 @@ const ArticlesPage: BlitzPage = () => {
 }
 
 ArticlesPage.authenticate = true
-ArticlesPage.getLayout = (page) => (
-  <Layout>
-    <ArticleLayout>{page}</ArticleLayout>
-  </Layout>
-)
+ArticlesPage.getLayout = (page) => <Layout>{page}</Layout>
 
 export default ArticlesPage

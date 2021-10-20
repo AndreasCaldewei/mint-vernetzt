@@ -13,39 +13,65 @@ export const Article = () => {
   const [article] = useQuery(getArticle, { id: articleId })
 
   return (
-    <div>
-      <h3 className={"font-montserrat text-primary font-bold text-2xl"}>{article.title}</h3>
-      <p>{article.body}</p>
+    <>
+      <Head>
+        <title>MINTFLIX | {article.title}</title>
+      </Head>
 
-      <Link href={Routes.EditArticlePage({ articleId: article.id })}>
-        <a>Bearbeiten</a>
-      </Link>
-
-      <Button
-        type="button"
-        onClick={async () => {
-          if (window.confirm("This will be deleted")) {
-            await deleteArticleMutation({ id: article.id })
-            router.push(Routes.ArticlesPage())
+      <p className={"mt-3"}>
+        <Link href={Routes.ArticlesPage()}>
+          <a className={"cursor-pointer text-primary underline ml-4 pt-10 mb-7"}>
+            Zurück zur Artikelübersicht
+          </a>
+        </Link>
+      </p>
+      <div>
+        <h3
+          className={
+            "font-montserrat text-primary font-bold text-5xl bg-primary5 -mx-2 mb-5 mt-5 py-4 pl-10"
           }
-        }}
-        style={{ marginLeft: "0.5rem" }}
-      >
-        Löschen
-      </Button>
-    </div>
+        >
+          {article.title}
+        </h3>
+        <p className={"whitespace-pre w-2/3 mb-10 pl-4 whitespace-normal whitespace-pre"}>
+          {article.body}
+        </p>
+        <p>
+          <Link href={Routes.ArticlesPage()}>
+            <a className={"cursor-pointer text-primary underline ml-4 mt-4 mb-10"}>
+              Weitere Artikel
+            </a>
+          </Link>
+        </p>
+
+        <div className={"ml-3 mt-3 mb-1 w-1/3"}>
+          <Link href={Routes.EditArticlePage({ articleId: article.id })} passHref>
+            <Button type={"button"}>
+              <a>Bearbeiten</a>
+            </Button>
+          </Link>
+
+          <Button
+            type="button"
+            onClick={async () => {
+              if (window.confirm("This will be deleted")) {
+                await deleteArticleMutation({ id: article.id })
+                router.push(Routes.ArticlesPage())
+              }
+            }}
+            style={{ marginLeft: "0.5rem" }}
+          >
+            Löschen
+          </Button>
+        </div>
+      </div>
+    </>
   )
 }
 
 const ShowArticlePage: BlitzPage = () => {
   return (
     <div>
-      <p>
-        <Link href={Routes.ArticlesPage()}>
-          <a>Weitere Artikel</a>
-        </Link>
-      </p>
-
       <Suspense fallback={<div>Loading...</div>}>
         <Article />
       </Suspense>

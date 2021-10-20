@@ -6,7 +6,7 @@ interface Props extends BaseProps {
   title?: string
 }
 
-const ArticleLayout = (props: Props) => {
+const VideoLayout = (props: Props) => {
   const { title, children } = props
 
   return (
@@ -24,4 +24,4 @@ const ArticleLayout = (props: Props) => {
   )
 }
 
-export default ArticleLayout
+export default VideoLayout

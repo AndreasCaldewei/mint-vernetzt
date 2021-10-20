@@ -3,7 +3,7 @@ import db from "db"
 import { z } from "zod"
 
 const CreateVideo = z.object({
-  name: z.string(),
+  title: z.string(),
 })
 
 export default resolver.pipe(resolver.zod(CreateVideo), resolver.authorize(), async (input) => {

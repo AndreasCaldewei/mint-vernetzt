@@ -3,7 +3,8 @@ import db from "db"
 import { z } from "zod"
 
 const CreateProject = z.object({
-  name: z.string(),
+  title: z.string(),
+  body: z.string(),
 })
 
 export default resolver.pipe(resolver.zod(CreateProject), resolver.authorize(), async (input) => {

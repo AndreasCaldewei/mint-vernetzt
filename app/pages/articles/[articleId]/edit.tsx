@@ -25,35 +25,48 @@ export const EditArticle = () => {
         <title>MINTFLIX | Edit Article {article.title}</title>
       </Head>
 
-      <div>
-        <h3 className={"font-montserrat text-primary font-bold text-2xl"}>
-          Edit Article {article.title}
-        </h3>
-        <pre>{JSON.stringify(article, null, 2)}</pre>
+      <p className={"mt-3"}>
+        <Link href={Routes.ArticlesPage()}>
+          <a className={"cursor-pointer text-primary underline ml-4 pt-10 mb-7"}>
+            Zurück zur Artikelübersicht
+          </a>
+        </Link>
+      </p>
 
-        <ArticleForm
-          submitText="Update Article"
-          // TODO use a zod schema for form validation
-          //  - Tip: extract mutation's schema into a shared `validations.ts` file and
-          //         then import and use it here
-          // schema={UpdateArticle}
-          initialValues={article}
-          onSubmit={async (values) => {
-            try {
-              const updated = await updateArticleMutation({
-                id: article.id,
-                ...values,
-              })
-              await setQueryData(updated)
-              router.push(Routes.ShowArticlePage({ articleId: updated.id }))
-            } catch (error: any) {
-              console.error(error)
-              return {
-                [FORM_ERROR]: error.toString(),
+      <div>
+        <h3
+          className={
+            "font-montserrat text-primary font-bold text-5xl bg-primary5 -mx-2 mb-5 mt-5 py-4 pl-10"
+          }
+        >
+          Artikel <q>{article.title}</q> bearbeiten
+        </h3>
+
+        <div className={"ml-4"}>
+          <ArticleForm
+            submitText="Artikel aktualisieren"
+            // TODO use a zod schema for form validation
+            //  - Tip: extract mutation's schema into a shared `validations.ts` file and
+            //         then import and use it here
+            // schema={UpdateArticle}
+            initialValues={article}
+            onSubmit={async (values) => {
+              try {
+                const updated = await updateArticleMutation({
+                  id: article.id,
+                  ...values,
+                })
+                await setQueryData(updated)
+                router.push(Routes.ShowArticlePage({ articleId: updated.id }))
+              } catch (error: any) {
+                console.error(error)
+                return {
+                  [FORM_ERROR]: error.toString(),
+                }
               }
-            }
-          }}
-        />
+            }}
+          />
+        </div>
       </div>
     </>
   )
@@ -65,12 +78,6 @@ const EditArticlePage: BlitzPage = () => {
       <Suspense fallback={<div>Loading...</div>}>
         <EditArticle />
       </Suspense>
-
-      <p>
-        <Link href={Routes.ArticlesPage()}>
-          <a>Articles</a>
-        </Link>
-      </p>
     </div>
   )
 }

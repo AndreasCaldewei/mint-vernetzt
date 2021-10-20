@@ -64,13 +64,6 @@ model Token {
 //   RESET_PASSWORD
 // }
 
-model Project {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  title     String
-}
-
 model Article {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
@@ -84,4 +77,12 @@ model Video {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   title     String
+}
+
+model Project {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  title     String
+  body      String
 }

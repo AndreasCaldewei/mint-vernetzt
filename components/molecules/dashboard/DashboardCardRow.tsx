@@ -5,8 +5,9 @@ import Card from "../../atoms/Card"
 export interface DashboardCard {
   imageUrl?: string
   metadata?: any
+  id: number
   title: string
-  description: string
+  body?: string
 }
 
 interface Props extends BaseProps {
@@ -26,8 +27,9 @@ const DashboardCardRow = (props: Props) => {
             <Card
               key={index}
               imageUrl={card.imageUrl}
+              id={card.id}
               title={card.title}
-              description={card.description}
+              body={card.body}
             ></Card>
           ))}
         </Slider>
