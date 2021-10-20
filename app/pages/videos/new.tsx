@@ -1,4 +1,4 @@
-import { Link, useRouter, useMutation, BlitzPage, Routes } from "blitz"
+import { Link, useRouter, useMutation, BlitzPage, Routes, Head } from "blitz"
 import Layout from "app/core/layouts/Layout"
 import createVideo from "app/videos/mutations/createVideo"
 import { VideoForm, FORM_ERROR } from "app/videos/components/VideoForm"
@@ -9,6 +9,10 @@ const NewVideoPage: BlitzPage = () => {
 
   return (
     <div>
+      <Head>
+        <title>MINTFLIX | Create Video</title>
+      </Head>
+
       <h1>Create New Video</h1>
 
       <VideoForm

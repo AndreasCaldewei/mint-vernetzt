@@ -2,6 +2,7 @@ import { Suspense } from "react"
 import { Head, Link, usePaginatedQuery, useRouter, BlitzPage, Routes } from "blitz"
 import Layout from "app/core/layouts/Layout"
 import getArticles from "app/articles/queries/getArticles"
+import ArticleLayout from "../../articles/layouts/ArticleLayout"
 
 const ITEMS_PER_PAGE = 100
 
@@ -19,21 +20,23 @@ export const ArticlesList = () => {
 
   return (
     <div>
+      <h3 className={"font-montserrat text-primary font-bold text-2xl"}>Artikel</h3>
       <ul>
         {articles.map((article) => (
           <li key={article.id}>
             <Link href={Routes.ShowArticlePage({ articleId: article.id })}>
-              <a>{article.name}</a>
+              <a>{article.title}</a>
             </Link>
+            <p>{article.body}</p>
           </li>
         ))}
       </ul>
 
       <button disabled={page === 0} onClick={goToPreviousPage}>
-        Previous
+        Vorherige Seite
       </button>
       <button disabled={!hasMore} onClick={goToNextPage}>
-        Next
+        Nächste Seite
       </button>
     </div>
   )
@@ -49,7 +52,7 @@ const ArticlesPage: BlitzPage = () => {
       <div>
         <p>
           <Link href={Routes.NewArticlePage()}>
-            <a>Create Article</a>
+            <a>Artikel schreiben</a>
           </Link>
         </p>
 
@@ -62,6 +65,10 @@ const ArticlesPage: BlitzPage = () => {
 }
 
 ArticlesPage.authenticate = true
-ArticlesPage.getLayout = (page) => <Layout>{page}</Layout>
+ArticlesPage.getLayout = (page) => (
+  <Layout>
+    <ArticleLayout>{page}</ArticleLayout>
+  </Layout>
+)
 
 export default ArticlesPage

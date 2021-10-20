@@ -4,6 +4,7 @@ import Layout from "app/core/layouts/Layout"
 import getArticle from "app/articles/queries/getArticle"
 import updateArticle from "app/articles/mutations/updateArticle"
 import { ArticleForm, FORM_ERROR } from "app/articles/components/ArticleForm"
+import ArticleLayout from "../../../articles/layouts/ArticleLayout"
 
 export const EditArticle = () => {
   const router = useRouter()
@@ -21,11 +22,13 @@ export const EditArticle = () => {
   return (
     <>
       <Head>
-        <title>Edit Article {article.id}</title>
+        <title>MINTFLIX | Edit Article {article.title}</title>
       </Head>
 
       <div>
-        <h1>Edit Article {article.id}</h1>
+        <h3 className={"font-montserrat text-primary font-bold text-2xl"}>
+          Edit Article {article.title}
+        </h3>
         <pre>{JSON.stringify(article, null, 2)}</pre>
 
         <ArticleForm
@@ -73,6 +76,10 @@ const EditArticlePage: BlitzPage = () => {
 }
 
 EditArticlePage.authenticate = true
-EditArticlePage.getLayout = (page) => <Layout>{page}</Layout>
+EditArticlePage.getLayout = (page) => (
+  <Layout>
+    <ArticleLayout>{page}</ArticleLayout>
+  </Layout>
+)
 
 export default EditArticlePage

@@ -21,7 +21,7 @@ export const EditVideo = () => {
   return (
     <>
       <Head>
-        <title>Edit Video {video.id}</title>
+        <title>MINTFLIX | Edit Video {video.title}</title>
       </Head>
 
       <div>

@@ -21,7 +21,7 @@ export const EditProject = () => {
   return (
     <>
       <Head>
-        <title>Edit Project {project.id}</title>
+        <title>MINTFLIX | Edit Project {project.title}</title>
       </Head>
 
       <div>

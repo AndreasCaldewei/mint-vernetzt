@@ -11,7 +11,7 @@ const Layout = ({ title, children }: LayoutProps) => {
   return (
     <>
       <Head>
-        <title>{title || "mint-vernetzt"}</title>
+        <title>{title || "MINTFLIX"}</title>
         <Navbar></Navbar>
         <link rel="icon" href="/favicon.ico" />
       </Head>

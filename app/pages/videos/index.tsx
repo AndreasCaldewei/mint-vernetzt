@@ -43,7 +43,7 @@ const VideosPage: BlitzPage = () => {
   return (
     <>
       <Head>
-        <title>Videos</title>
+        <title>MINTFLIX | Videos</title>
       </Head>
 
       <div>

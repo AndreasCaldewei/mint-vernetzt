@@ -1,4 +1,4 @@
-import { Link, useRouter, useMutation, BlitzPage, Routes } from "blitz"
+import { Link, useRouter, useMutation, BlitzPage, Routes, Head } from "blitz"
 import Layout from "app/core/layouts/Layout"
 import createProject from "app/projects/mutations/createProject"
 import { ProjectForm, FORM_ERROR } from "app/projects/components/ProjectForm"
@@ -9,6 +9,10 @@ const NewProjectPage: BlitzPage = () => {
 
   return (
     <div>
+      <Head>
+        <title>MINTFLIX | Create Project</title>
+      </Head>
+
       <h1>Create New Project</h1>
 
       <ProjectForm

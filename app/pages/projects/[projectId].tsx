@@ -13,7 +13,7 @@ export const Project = () => {
   return (
     <>
       <Head>
-        <title>Project {project.id}</title>
+        <title>MINTFLIX | Project {project.title}</title>
       </Head>
 
       <div>

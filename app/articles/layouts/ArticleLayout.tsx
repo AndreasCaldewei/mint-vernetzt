@@ -1,14 +1,12 @@
 import { BaseProps } from "../../../components/interface"
-import Navbar from "../../../components/atoms/Navbar"
 import Sidebar from "../../../components/atoms/Sidebar"
-import BigCard from "../../../components/atoms/BigCard"
-import DashboardCardRow from "../../../components/molecules/dashboard/DashboardCardRow"
+import { Head } from "@blitzjs/core/head"
 
 interface Props extends BaseProps {
-  title: string
+  title?: string
 }
 
-const ArticleLayout = (props: Props) => {
+const ArticleFormLayout = (props: Props) => {
   const { title, children } = props
 
   return (
@@ -26,4 +24,4 @@ const ArticleLayout = (props: Props) => {
   )
 }
 
-export default ArticleLayout
+export default ArticleFormLayout

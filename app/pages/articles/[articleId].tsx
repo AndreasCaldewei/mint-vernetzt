@@ -1,8 +1,10 @@
 import { Suspense } from "react"
 import { Head, Link, useRouter, useQuery, useParam, BlitzPage, useMutation, Routes } from "blitz"
-import Layout from "app/core/layouts/Layout"
 import getArticle from "app/articles/queries/getArticle"
 import deleteArticle from "app/articles/mutations/deleteArticle"
+import ArticleLayout from "../../articles/layouts/ArticleLayout"
+import Layout from "../../core/layouts/Layout"
+import Button from "../../../components/atoms/Button"
 
 export const Article = () => {
   const router = useRouter()
@@ -11,33 +13,27 @@ export const Article = () => {
   const [article] = useQuery(getArticle, { id: articleId })
 
   return (
-    <>
-      <Head>
-        <title>Article {article.id}</title>
-      </Head>
+    <div>
+      <h3 className={"font-montserrat text-primary font-bold text-2xl"}>{article.title}</h3>
+      <p>{article.body}</p>
 
-      <div>
-        <h1>Article {article.id}</h1>
-        <pre>{JSON.stringify(article, null, 2)}</pre>
+      <Link href={Routes.EditArticlePage({ articleId: article.id })}>
+        <a>Bearbeiten</a>
+      </Link>
 
-        <Link href={Routes.EditArticlePage({ articleId: article.id })}>
-          <a>Edit</a>
-        </Link>
-
-        <button
-          type="button"
-          onClick={async () => {
-            if (window.confirm("This will be deleted")) {
-              await deleteArticleMutation({ id: article.id })
-              router.push(Routes.ArticlesPage())
-            }
-          }}
-          style={{ marginLeft: "0.5rem" }}
-        >
-          Delete
-        </button>
-      </div>
-    </>
+      <Button
+        type="button"
+        onClick={async () => {
+          if (window.confirm("This will be deleted")) {
+            await deleteArticleMutation({ id: article.id })
+            router.push(Routes.ArticlesPage())
+          }
+        }}
+        style={{ marginLeft: "0.5rem" }}
+      >
+        Löschen
+      </Button>
+    </div>
   )
 }
 
@@ -46,7 +42,7 @@ const ShowArticlePage: BlitzPage = () => {
     <div>
       <p>
         <Link href={Routes.ArticlesPage()}>
-          <a>Articles</a>
+          <a>Weitere Artikel</a>
         </Link>
       </p>
 
@@ -58,6 +54,10 @@ const ShowArticlePage: BlitzPage = () => {
 }
 
 ShowArticlePage.authenticate = true
-ShowArticlePage.getLayout = (page) => <Layout>{page}</Layout>
+ShowArticlePage.getLayout = (page) => (
+  <Layout>
+    <ArticleLayout>{page}</ArticleLayout>
+  </Layout>
+)
 
 export default ShowArticlePage

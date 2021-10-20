@@ -13,7 +13,7 @@ export const Video = () => {
   return (
     <>
       <Head>
-        <title>Video {video.id}</title>
+        <title>MINTFLIX | Video {video.title}</title>
       </Head>
 
       <div>

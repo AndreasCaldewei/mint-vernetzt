@@ -43,7 +43,7 @@ const ProjectsPage: BlitzPage = () => {
   return (
     <>
       <Head>
-        <title>Projects</title>
+        <title>MINTFLIX | Projects</title>
       </Head>
 
       <div>
