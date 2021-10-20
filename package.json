@@ -37,6 +37,7 @@
     "react-dom": "alpha",
     "react-final-form": "6.5.7",
     "react-horizontal-scrolling-menu": "2.5.0",
+    "react-mde": "11.5.0",
     "tailwindcss": "2.1.2",
     "zod": "3.9.8"
   },
