@@ -2,6 +2,7 @@ import { Link, useRouter, useMutation, BlitzPage, Routes } from "blitz"
 import Layout from "app/core/layouts/Layout"
 import createArticle from "app/articles/mutations/createArticle"
 import { ArticleForm, FORM_ERROR } from "app/articles/components/ArticleForm"
+import ArticleLayout from "../../core/layouts/ArticleLayout"
 
 const NewArticlePage: BlitzPage = () => {
   const router = useRouter()
@@ -30,17 +31,15 @@ const NewArticlePage: BlitzPage = () => {
           }
         }}
       />
-
-      <p>
-        <Link href={Routes.ArticlesPage()}>
-          <a>Articles</a>
-        </Link>
-      </p>
     </div>
   )
 }
 
 NewArticlePage.authenticate = true
-NewArticlePage.getLayout = (page) => <Layout title={"Create New Article"}>{page}</Layout>
+NewArticlePage.getLayout = (page) => (
+  <Layout>
+    <ArticleLayout title={"Create New Article"}>{page}</ArticleLayout>
+  </Layout>
+)
 
 export default NewArticlePage
