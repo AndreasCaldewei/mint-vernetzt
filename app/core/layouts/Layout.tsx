@@ -1,4 +1,4 @@
-import { ReactNode } from "react"
+import { ReactNode, Suspense } from "react"
 import { Head } from "blitz"
 import Navbar from "../../../components/atoms/Navbar"
 
@@ -16,7 +16,7 @@ const Layout = ({ title, children }: LayoutProps) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {children}
+      <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
     </>
   )
 }

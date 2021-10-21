@@ -4,6 +4,8 @@ import { z } from "zod"
 
 const CreateVideo = z.object({
   name: z.string(),
+  description: z.string(),
+  projectId: z.number(),
 })
 
 export default resolver.pipe(resolver.zod(CreateVideo), resolver.authorize(), async (input) => {
