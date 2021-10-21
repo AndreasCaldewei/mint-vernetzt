@@ -1,4 +1,3 @@
-import { LoginForm } from "../../auth/components/LoginForm"
 import { BaseProps } from "../../../components/interface"
 
 interface Props extends BaseProps {

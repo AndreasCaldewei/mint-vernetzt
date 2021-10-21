@@ -2,7 +2,7 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgres"
   url      = env("DATABASE_URL")
 }
 
@@ -26,6 +26,7 @@ model User {
 
   articles Article[]
   projects Project[]
+  videos   Video[]
 
 }
 
@@ -69,35 +70,47 @@ model Token {
 // }
 
 model Project {
-  id        Int       @id @default(autoincrement())
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
   name      String
-  articles  Article[]
-  videos    Video[]
-  user      User      @relation(fields: [userId], references: [id])
-  userId    Int
+  title     String
+  body      String
+
+  articles Article[]
+  videos   Video[]
+
+  user   User? @relation(fields: [userId], references: [id])
+  userId Int?
+
 }
 
 model Article {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  name      String
-  text      String
+  title     String
+  body      String
+
   project   Project? @relation(fields: [projectId], references: [id])
   projectId Int?
 
-  user   User @relation(fields: [userId], references: [id])
-  userId Int
+  User   User? @relation(fields: [userId], references: [id])
+  userId Int?
 }
 
 model Video {
-  id          Int      @id @default(autoincrement())
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  name        String
-  description String
-  project     Project  @relation(fields: [projectId], references: [id])
-  projectId   Int
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  name      String
+  text      String
+  title     String
+
+  project   Project? @relation(fields: [projectId], references: [id])
+  projectId Int?
+
+  user   User? @relation(fields: [userId], references: [id])
+  userId Int?
+
 }

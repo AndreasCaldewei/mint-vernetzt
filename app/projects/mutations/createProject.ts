@@ -4,7 +4,8 @@ import { z } from "zod"
 import { useUser } from "../../../utils/useUset"
 
 const CreateProject = z.object({
-  name: z.string(),
+  title: z.string(),
+  body: z.string(),
 })
 
 export default resolver.pipe(

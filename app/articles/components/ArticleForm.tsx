@@ -1,6 +1,7 @@
 import { Form, FormProps } from "app/core/components/Form"
 import { LabeledTextField } from "app/core/components/LabeledTextField"
 import { z } from "zod"
+import LabeledTextarea from "../../core/components/LabeledTextarea"
 export { FORM_ERROR } from "app/core/components/Form"
 import "react-mde/lib/styles/css/react-mde-all.css"
 import React, { useState } from "react"
