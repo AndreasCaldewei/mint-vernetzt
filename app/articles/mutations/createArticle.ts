@@ -9,7 +9,6 @@ const CreateArticle = z.object({
   text: z.string(),
   title: z.string(),
   body: z.string(),
-  s,
 })
 
 export default resolver.pipe(
