@@ -52,7 +52,7 @@ export const Project = () => {
             </Button>
           </Link>
 
-          <Button
+          <button
             type="button"
             onClick={async () => {
               if (window.confirm("This will be deleted")) {
@@ -63,7 +63,7 @@ export const Project = () => {
             style={{ marginLeft: "0.5rem" }}
           >
             Löschen
-          </Button>
+          </button>
         </div>
       </div>
     </>

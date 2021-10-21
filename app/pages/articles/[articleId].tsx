@@ -51,7 +51,7 @@ export const Article = () => {
             </Button>
           </Link>
 
-          <Button
+          <button
             type="button"
             onClick={async () => {
               if (window.confirm("This will be deleted")) {
@@ -62,7 +62,7 @@ export const Article = () => {
             style={{ marginLeft: "0.5rem" }}
           >
             Löschen
-          </Button>
+          </button>
         </div>
       </div>
     </>
