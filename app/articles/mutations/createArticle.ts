@@ -1,12 +1,9 @@
-import { resolver } from "blitz"
+import { Ctx, resolver } from "blitz"
 import db from "db"
 import { z } from "zod"
-import { Ctx } from "blitz"
 import { useUser } from "../../../utils/useUset"
 
 const CreateArticle = z.object({
-  name: z.string(),
-  text: z.string(),
   title: z.string(),
   body: z.string(),
 })
@@ -22,8 +19,6 @@ export default resolver.pipe(
       userId,
     }
     // TODO: in multi-tenant app, you must add validation to ensure correct tenant
-    const article = await db.article.create({ data })
-
-    return article
+    return await db.article.create({ data })
   }
 )

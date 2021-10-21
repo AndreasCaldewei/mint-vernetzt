@@ -5,6 +5,7 @@ import getProject from "app/projects/queries/getProject"
 import updateProject from "app/projects/mutations/updateProject"
 import { ProjectForm, FORM_ERROR } from "app/projects/components/ProjectForm"
 import ProjectLayout from "../../../projects/layouts/ArticleLayout"
+import Fallback from "../../../../components/atoms/Fallback"
 
 export const EditProject = () => {
   const router = useRouter()
@@ -27,7 +28,9 @@ export const EditProject = () => {
 
       <p className={"mt-3"}>
         <Link href={Routes.ProjectsPage()}>
-          <a className={"cursor-pointer text-primary underline ml-4 pt-10 mb-7"}>
+          <a
+            className={"cursor-pointer text-primary underline ml-4 pt-10 mb-7 hover:text-secondary"}
+          >
             Zurück zur Projektübersicht
           </a>
         </Link>
@@ -75,7 +78,7 @@ export const EditProject = () => {
 const EditProjectPage: BlitzPage = () => {
   return (
     <div>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Fallback />}>
         <EditProject />
       </Suspense>
     </div>

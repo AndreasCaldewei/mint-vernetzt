@@ -5,6 +5,7 @@ import getVideo from "app/videos/queries/getVideo"
 import updateVideo from "app/videos/mutations/updateVideo"
 import { VideoForm, FORM_ERROR } from "app/videos/components/VideoForm"
 import VideoLayout from "../../../videos/layouts/VideoLayout"
+import Fallback from "../../../../components/atoms/Fallback"
 
 export const EditVideo = () => {
   const router = useRouter()
@@ -26,7 +27,9 @@ export const EditVideo = () => {
       </Head>
       <p className={"mt-3"}>
         <Link href={Routes.ArticlesPage()}>
-          <a className={"cursor-pointer text-primary underline ml-4 pt-10 mb-7"}>
+          <a
+            className={"cursor-pointer text-primary underline ml-4 pt-10 mb-7 hover:text-secondary"}
+          >
             Zurück zur Artikelübersicht
           </a>
         </Link>
@@ -74,7 +77,7 @@ export const EditVideo = () => {
 const EditVideoPage: BlitzPage = () => {
   return (
     <div>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Fallback />}>
         <EditVideo />
       </Suspense>
     </div>

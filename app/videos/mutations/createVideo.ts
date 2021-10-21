@@ -1,18 +1,25 @@
-import { resolver } from "blitz"
+import { Ctx, resolver } from "blitz"
 import db from "db"
 import { z } from "zod"
+import { useUser } from "../../../utils/useUset"
 
 const CreateVideo = z.object({
-  name: z.string(),
-  description: z.string(),
-  text: z.string(),
+  url: z.string(),
   title: z.string(),
-  projectId: z.number(),
+  body: z.string(),
 })
 
-export default resolver.pipe(resolver.zod(CreateVideo), resolver.authorize(), async (input) => {
-  // TODO: in multi-tenant app, you must add validation to ensure correct tenant
-  const video = await db.video.create({ data: input })
+export default resolver.pipe(
+  resolver.zod(CreateVideo),
+  resolver.authorize(),
+  async (input, ctx: Ctx) => {
+    // TODO: in multi-tenant app, you must add validation to ensure correct tenant
+    const { userId } = useUser(ctx)
+    const data = {
+      ...input,
+      userId,
+    }
 
-  return video
-})
+    return await db.video.create({ data })
+  }
+)

@@ -5,6 +5,7 @@ import getArticle from "app/articles/queries/getArticle"
 import updateArticle from "app/articles/mutations/updateArticle"
 import { ArticleForm, FORM_ERROR } from "app/articles/components/ArticleForm"
 import ArticleLayout from "../../../articles/layouts/ArticleLayout"
+import Fallback from "../../../../components/atoms/Fallback"
 
 export const EditArticle = () => {
   const router = useRouter()
@@ -27,7 +28,9 @@ export const EditArticle = () => {
 
       <p className={"mt-3"}>
         <Link href={Routes.ArticlesPage()}>
-          <a className={"cursor-pointer text-primary underline ml-4 pt-10 mb-7"}>
+          <a
+            className={"cursor-pointer text-primary underline ml-4 pt-10 mb-7 hover:text-secondary"}
+          >
             Zurück zur Artikelübersicht
           </a>
         </Link>
@@ -75,7 +78,7 @@ export const EditArticle = () => {
 const EditArticlePage: BlitzPage = () => {
   return (
     <div>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Fallback />}>
         <EditArticle />
       </Suspense>
     </div>

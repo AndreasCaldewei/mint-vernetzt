@@ -16,7 +16,9 @@ const NewProjectPage: BlitzPage = () => {
 
       <p className={"mt-3"}>
         <Link href={Routes.ProjectsPage()}>
-          <a className={"cursor-pointer text-primary underline ml-4 pt-10 mb-7"}>
+          <a
+            className={"cursor-pointer text-primary underline ml-4 pt-10 mb-7 hover:text-secondary"}
+          >
             Zurück zur Projektübersicht
           </a>
         </Link>

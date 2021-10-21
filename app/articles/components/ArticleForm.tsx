@@ -4,7 +4,6 @@ import { z } from "zod"
 export { FORM_ERROR } from "app/core/components/Form"
 import "react-mde/lib/styles/css/react-mde-all.css"
 import React, { useState } from "react"
-import ReactMde from "react-mde"
 import { useQuery } from "blitz"
 import getProjects from "../../projects/queries/getProjects"
 import { useCurrentUser } from "../../core/hooks/useCurrentUser"
@@ -19,14 +18,14 @@ export function ArticleForm<S extends z.ZodType<any, any>>(props: FormProps<S>) 
 
   return (
     <Form<S> {...props}>
-      <LabeledTextField name="name" label="Name" placeholder="Name" />
-      <LabeledTextField name="text" label="Text" placeholder="Text" />
+      <LabeledTextField name="title" label="Titel" placeholder="Titel" />
+      <LabeledTextField name="body" label="Text" placeholder="Text" />
 
-      <Field name="favoriteColor" component="select">
+      <Field name="projectId" component="select">
         <option />
         {projects.map((project: any) => (
-          <option value={project} key={project.id}>
-            {project.name}
+          <option value={parseInt(project.id)} key={parseInt(project.id)}>
+            {project.id}
           </option>
         ))}
       </Field>

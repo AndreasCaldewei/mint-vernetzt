@@ -5,6 +5,7 @@ import getProject from "app/projects/queries/getProject"
 import deleteProject from "app/projects/mutations/deleteProject"
 import ProjectLayout from "../../projects/layouts/ArticleLayout"
 import Button from "../../../components/atoms/Button"
+import Fallback from "../../../components/atoms/Fallback"
 
 export const Project = () => {
   const router = useRouter()
@@ -20,7 +21,9 @@ export const Project = () => {
 
       <p className={"mt-3"}>
         <Link href={Routes.ProjectsPage()}>
-          <a className={"cursor-pointer text-primary underline ml-4 pt-10 mb-7"}>
+          <a
+            className={"cursor-pointer text-primary underline ml-4 pt-10 mb-7 hover:text-secondary"}
+          >
             Zurück zur Projektübersicht
           </a>
         </Link>
@@ -39,7 +42,11 @@ export const Project = () => {
         </p>
         <p>
           <Link href={Routes.ProjectsPage()}>
-            <a className={"cursor-pointer text-primary underline ml-4 mt-4 mb-10"}>
+            <a
+              className={
+                "cursor-pointer text-primary underline ml-4 mt-4 mb-10 hover:text-secondary"
+              }
+            >
               Weitere Projekte
             </a>
           </Link>
@@ -54,6 +61,7 @@ export const Project = () => {
 
           <button
             type="button"
+            className="inline-grid max-w-[300px] flex justify-center py-2 px-4 bg-transparent hover:bg-danger text-danger font-semibold hover:text-white py-2 px-4 border hover:border-transparent rounded"
             onClick={async () => {
               if (window.confirm("This will be deleted")) {
                 await deleteProjectMutation({ id: project.id })
@@ -73,7 +81,7 @@ export const Project = () => {
 const ShowProjectPage: BlitzPage = () => {
   return (
     <div>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Fallback />}>
         <Project />
       </Suspense>
     </div>

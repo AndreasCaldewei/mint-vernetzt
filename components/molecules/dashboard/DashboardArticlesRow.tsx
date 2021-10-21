@@ -2,17 +2,17 @@ import { BaseProps } from "../../interface"
 import Slider from "../../atoms/Slider"
 import Card from "../../atoms/Card"
 
-export interface DashboardCard {
-  imageUrl?: string
+export interface DashboardArticleCard {
+  url?: string
   metadata?: any
   id: number
   title: string
-  body?: string
+  body: string
 }
 
 interface Props extends BaseProps {
   label: string
-  cards: DashboardCard[]
+  cards: DashboardArticleCard[]
 }
 
 const DashboardCardRow = (props: Props) => {
@@ -26,10 +26,11 @@ const DashboardCardRow = (props: Props) => {
           {cards.map((card, index) => (
             <Card
               key={index}
-              imageUrl={card.imageUrl}
+              url={card.url}
               id={card.id}
               title={card.title}
               body={card.body}
+              type={"article"}
             ></Card>
           ))}
         </Slider>

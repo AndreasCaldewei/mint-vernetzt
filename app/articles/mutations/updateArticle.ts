@@ -6,6 +6,7 @@ const UpdateArticle = z.object({
   id: z.number(),
   title: z.string(),
   body: z.string(),
+  projectId: z.number(),
 })
 
 export default resolver.pipe(

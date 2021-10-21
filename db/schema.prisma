@@ -73,7 +73,6 @@ model Project {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  name      String
   title     String
   body      String
 
@@ -103,14 +102,13 @@ model Video {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  name      String
-  text      String
+  url       String
   title     String
+  body      String
 
   project   Project? @relation(fields: [projectId], references: [id])
   projectId Int?
 
   user   User? @relation(fields: [userId], references: [id])
   userId Int?
-
 }

@@ -4,7 +4,9 @@ import { z } from "zod"
 
 const UpdateVideo = z.object({
   id: z.number(),
+  url: z.string(),
   title: z.string(),
+  projectId: z.number(),
 })
 
 export default resolver.pipe(
@@ -12,8 +14,6 @@ export default resolver.pipe(
   resolver.authorize(),
   async ({ id, ...data }) => {
     // TODO: in multi-tenant app, you must add validation to ensure correct tenant
-    const video = await db.video.update({ where: { id }, data })
-
-    return video
+    return await db.video.update({ where: { id }, data })
   }
 )

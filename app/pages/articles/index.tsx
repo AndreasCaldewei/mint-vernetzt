@@ -4,7 +4,8 @@ import Layout from "app/core/layouts/Layout"
 import getArticles from "app/articles/queries/getArticles"
 import Sidebar from "../../../components/atoms/Sidebar"
 import BigCard from "../../../components/atoms/BigCard"
-import DashboardCardRow from "../../../components/molecules/dashboard/DashboardCardRow"
+import DashboardArticlesRow from "../../../components/molecules/dashboard/DashboardArticlesRow"
+import Fallback from "../../../components/atoms/Fallback"
 
 const ITEMS_PER_PAGE = 100
 
@@ -22,13 +23,9 @@ export const ArticlesList = () => {
       <Sidebar></Sidebar>
       <div className={"w-full"}>
         <div className="ml-16">
-          <BigCard
-            title={"Der heiße Scheiß"}
-            body={
-              "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
-            }
-          ></BigCard>
-          <DashboardCardRow label={"Artikel"} cards={articles}></DashboardCardRow>
+          <DashboardArticlesRow label={"Artikel"} cards={articles}></DashboardArticlesRow>
+          <DashboardArticlesRow label={"Artikel"} cards={articles}></DashboardArticlesRow>
+          <DashboardArticlesRow label={"Artikel"} cards={articles}></DashboardArticlesRow>
         </div>
       </div>
     </div>
@@ -43,7 +40,7 @@ const ArticlesPage: BlitzPage = () => {
       </Head>
 
       <div>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<Fallback />}>
           <ArticlesList />
         </Suspense>
       </div>

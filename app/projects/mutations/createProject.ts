@@ -6,7 +6,6 @@ import { useUser } from "../../../utils/useUset"
 const CreateProject = z.object({
   title: z.string(),
   body: z.string(),
-  name: z.string(),
 })
 
 export default resolver.pipe(
@@ -15,8 +14,11 @@ export default resolver.pipe(
   async (input, ctx: Ctx) => {
     // TODO: in multi-tenant app, you must add validation to ensure correct tenant
     const { userId } = useUser(ctx)
-    const project = await db.project.create({ data: { ...input, userId } })
+    const data = {
+      ...input,
+      userId,
+    }
 
-    return project
+    return await db.project.create({ data })
   }
 )

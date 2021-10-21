@@ -5,6 +5,7 @@ import deleteArticle from "app/articles/mutations/deleteArticle"
 import ArticleLayout from "../../articles/layouts/ArticleLayout"
 import Layout from "../../core/layouts/Layout"
 import Button from "../../../components/atoms/Button"
+import Fallback from "../../../components/atoms/Fallback"
 
 export const Article = () => {
   const router = useRouter()
@@ -20,7 +21,9 @@ export const Article = () => {
 
       <p className={"mt-3"}>
         <Link href={Routes.ArticlesPage()}>
-          <a className={"cursor-pointer text-primary underline ml-4 pt-10 mb-7"}>
+          <a
+            className={"cursor-pointer text-primary underline ml-4 pt-10 mb-7 hover:text-secondary"}
+          >
             Zurück zur Artikelübersicht
           </a>
         </Link>
@@ -31,14 +34,18 @@ export const Article = () => {
             "font-montserrat text-primary font-bold text-5xl bg-primary5 -mx-2 mb-5 mt-5 py-4 pl-10"
           }
         >
-          {article.title}
+          {article.title} aus {article.projectId}
         </h3>
         <p className={"whitespace-pre w-2/3 mb-10 pl-4 whitespace-normal whitespace-pre"}>
           {article.body}
         </p>
         <p>
           <Link href={Routes.ArticlesPage()}>
-            <a className={"cursor-pointer text-primary underline ml-4 mt-4 mb-10"}>
+            <a
+              className={
+                "cursor-pointer text-primary underline ml-4 mt-4 mb-10 hover:text-secondary"
+              }
+            >
               Weitere Artikel
             </a>
           </Link>
@@ -53,6 +60,7 @@ export const Article = () => {
 
           <button
             type="button"
+            className="inline-grid max-w-[300px] flex justify-center py-2 px-4 bg-transparent hover:bg-danger text-danger font-semibold hover:text-white py-2 px-4 border hover:border-transparent rounded"
             onClick={async () => {
               if (window.confirm("This will be deleted")) {
                 await deleteArticleMutation({ id: article.id })
@@ -72,7 +80,7 @@ export const Article = () => {
 const ShowArticlePage: BlitzPage = () => {
   return (
     <div>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Fallback />}>
         <Article />
       </Suspense>
     </div>
