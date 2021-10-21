@@ -5,6 +5,8 @@ import { z } from "zod"
 const CreateVideo = z.object({
   name: z.string(),
   description: z.string(),
+  text: z.string(),
+  title: z.string(),
   projectId: z.number(),
 })
 
