@@ -6,6 +6,7 @@ import { useUser } from "../../../utils/useUset"
 const CreateProject = z.object({
   title: z.string(),
   body: z.string(),
+  name: z.string(),
 })
 
 export default resolver.pipe(
