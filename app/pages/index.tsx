@@ -7,6 +7,7 @@ import DashboardArticlesRow, {
   DashboardArticleCard,
 } from "../../components/molecules/dashboard/DashboardArticlesRow"
 import getVideos from "../videos/queries/getVideos"
+import DashboardVideosRow from "../../components/molecules/dashboard/DashboardVideosRow"
 
 /*
  * This file is just for a pleasant getting started page for your new app.
@@ -36,7 +37,7 @@ const Home: BlitzPage = () => {
               "MINTvernetzt wird vom Bundesministerium für Bildung und Forschung (BMBF) gefördert und von Mitarbeitenden der Körber-Stiftung, der matrix gGmbH, dem Nationalen MINT Forum e.V., der Universität Regensburg und dem Stifterverband gemeinsam umgesetzt. "
             }
           ></BigCard>
-          <DashboardArticlesRow label={"Videos"} cards={videos}></DashboardArticlesRow>
+          <DashboardVideosRow label={"Videos"} cards={videos}></DashboardVideosRow>
           <DashboardArticlesRow label={"Artikel"} cards={articles}></DashboardArticlesRow>
         </div>
       </div>

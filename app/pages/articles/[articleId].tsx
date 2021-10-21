@@ -31,19 +31,39 @@ export const Article = () => {
       <div>
         <h3
           className={
-            "font-montserrat text-primary font-bold text-5xl bg-primary5 -mx-2 mb-5 mt-5 py-4 pl-10"
+            "font-montserrat text-primary font-bold text-5xl w-1/3 bg-primary5 -mx-2 mb-5 mt-5 py-4 pl-10 rounded-tr-full rounded-br-full"
           }
         >
           {article.title} aus {article.projectId}
         </h3>
+        <p
+          className={
+            "whitespace-pre mb-10 pl-4 w-1/5 pr-1 line-clamp-1 whitespace-normal whitespace-pre bg-successlight text-success -mx-2 pl-6 rounded-tr-full rounded-br-full"
+          }
+        >
+          #Artikel #HardCoded #NotDynamic
+        </p>
         <p className={"whitespace-pre w-2/3 mb-10 pl-4 whitespace-normal whitespace-pre"}>
           {article.body}
         </p>
+        <h3
+          className={
+            "font-montserrat text-secondary font-bold text-5xl w-2/3 bg-secondarylight -mx-2 mb-4 mt-4 py-4 pl-10 rounded-tr-full rounded-br-full"
+          }
+        >
+          Autor
+          <p className={"whitespace-pre w-5/6 mb-4 whitespace-normal whitespace-pre text-base"}>
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+            invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
+            accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
+            sanctus est Lorem ipsum dolor sit amet.
+          </p>
+        </h3>
         <p>
           <Link href={Routes.ArticlesPage()}>
             <a
               className={
-                "cursor-pointer text-primary underline ml-4 mt-4 mb-10 hover:text-secondary"
+                "cursor-pointer text-primary underline ml-4 mt-3 mb-10 hover:text-secondary"
               }
             >
               Weitere Artikel
