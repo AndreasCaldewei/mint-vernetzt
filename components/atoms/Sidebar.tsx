@@ -3,16 +3,14 @@ import { Link, Routes } from "blitz"
 const Sidebar = () => {
   return (
     <>
-      <div className={"-z-90 flex justify-center fixed top-0 left-0 w-14 bg-primary"}>
+      <div className={"z-10 flex justify-center fixed top-0 left-0 w-14 bg-primary"}>
         <div className="flex-shrink-0 flex justify-items-start">
           <a href="#">
             <h1 className="text-white text-center text-6xl font-title mx-auto">M</h1>
           </a>
         </div>
       </div>
-      <nav
-        className={"-z-100 flex justify-center w-14 bg-tertiary2 fixed top-0 left-0 h-full fixed"}
-      >
+      <nav className={"z-1 flex justify-center w-14 bg-tertiary2 fixed top-0 left-0 h-full fixed"}>
         <ul className={"mt-[60px]"}>
           <li className={"mt-10"}>
             <a href="#Search">
