@@ -3,7 +3,7 @@ import Slider from "../../atoms/Slider"
 import Card from "../../atoms/Card"
 
 export interface DashboardArticleCard {
-  url?: string
+  url?: string | undefined | null
   metadata?: any
   id: number
   title: string
