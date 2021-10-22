@@ -2,7 +2,7 @@ import { Link, Routes } from "blitz"
 
 interface Props {
   type: "article" | "video" | "project"
-  url?: string
+  url?: string | undefined | null
   id: number
   title: string
   body?: string
