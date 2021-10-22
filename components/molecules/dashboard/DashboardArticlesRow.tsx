@@ -21,7 +21,7 @@ const DashboardCardRow = (props: Props) => {
   return (
     <>
       <div className="mb-2">
-        <h1 className="mt-16 mb-3 ml-2 text-primary m-auto text-6xl font-title">{label}</h1>
+        <h1 className="mt-16 mb-3 ml-6 text-primary m-auto text-6xl font-title">{label}</h1>
         <Slider>
           {cards.map((card, index) => (
             <Card

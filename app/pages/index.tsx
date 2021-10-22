@@ -26,7 +26,7 @@ const Home: BlitzPage = () => {
     <div>
       <Sidebar></Sidebar>
       <div className={"w-full"}>
-        <div className="ml-16">
+        <div className="ml-14">
           <BigCard
             title={"Was ist MINTvernetzt überhaupt?"}
             body={

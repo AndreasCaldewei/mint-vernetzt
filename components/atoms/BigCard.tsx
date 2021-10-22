@@ -9,7 +9,7 @@ const BigCard = (props: Props) => {
   return (
     <>
       <div className={"cursor-pointer"}>
-        <div className={"rounded bg-white shadow-md mt-6 p-0 mr-6 ml-3"}>
+        <div className={"rounded bg-white shadow-md mt-6 p-0 mr-6 ml-6"}>
           <div>
             <iframe
               className="w-full h-[600px] rounded-tl rounded-tr"

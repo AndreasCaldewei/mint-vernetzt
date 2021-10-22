@@ -5,7 +5,7 @@ import { Link, Routes } from "blitz"
 
 interface Props extends BaseProps {}
 
-const VideoLayout = (props: Props) => {
+const ProjectLayout = (props: Props) => {
   const { children } = props
 
   return (
@@ -15,13 +15,13 @@ const VideoLayout = (props: Props) => {
         <div className={"ml-[3.5rem]"}>
           <div className="mb-4 mx-[1rem]">
             <p className={"mt-4"}>
-              <Link href={Routes.VideosPage()}>
+              <Link href={Routes.ProjectsPage()}>
                 <a
                   className={
                     "cursor-pointer text-primary underline pt-10 mb-4 hover:text-secondary"
                   }
                 >
-                  Zurück zur Videoübersicht
+                  Zurück zur Projektübersicht
                 </a>
               </Link>
             </p>
@@ -33,4 +33,4 @@ const VideoLayout = (props: Props) => {
   )
 }
 
-export default VideoLayout
+export default ProjectLayout

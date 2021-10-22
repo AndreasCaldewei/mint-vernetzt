@@ -22,7 +22,7 @@ export const ProjectsList = () => {
     <div>
       <Sidebar></Sidebar>
       <div className={"w-full"}>
-        <div className="ml-16">
+        <div className="ml-14">
           <DashboardProjectsRow label={"Projekte"} cards={projects}></DashboardProjectsRow>
           <DashboardProjectsRow label={"Projekte"} cards={projects}></DashboardProjectsRow>
           <DashboardProjectsRow label={"Projekte"} cards={projects}></DashboardProjectsRow>

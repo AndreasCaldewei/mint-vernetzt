@@ -2,7 +2,7 @@ import { Link, useRouter, useMutation, BlitzPage, Routes, Head } from "blitz"
 import Layout from "app/core/layouts/Layout"
 import createProject from "app/projects/mutations/createProject"
 import { ProjectForm, FORM_ERROR } from "app/projects/components/ProjectForm"
-import ProjectLayout from "../../projects/layouts/ArticleLayout"
+import ProjectLayout from "../../projects/layouts/ProjectLayout"
 
 const NewProjectPage: BlitzPage = () => {
   const router = useRouter()

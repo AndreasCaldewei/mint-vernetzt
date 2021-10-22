@@ -15,7 +15,7 @@ const Card = (props: Props) => {
     return (
       <>
         <div className="cursor-pointer">
-          <div className="rounded bg-white shadow-md w-[500px] h-[320px] m-1 p-0">
+          <div className="rounded bg-white shadow-md w-[500px] h-[320px] ml-6 p-0">
             <div>
               {!url.includes("https://www.youtube.com/embed/") && (
                 <img className={"rounded-tl rounded-tr h-[200px] w-full object-cover"} src={url} />
@@ -63,7 +63,7 @@ const Card = (props: Props) => {
     return (
       <>
         <div>
-          <div className="rounded bg-white shadow-md w-[500px] m-1 p-0 h-[320px]">
+          <div className="rounded bg-white shadow-md w-[500px] ml-6 p-0 h-[320px]">
             <div className={"p-2"}>
               <h3 className="cursor-pointer font-montserrat text-primary font-bold text-2xl line-clamp-1 underline hover:text-secondary">
                 {type == "article" && (

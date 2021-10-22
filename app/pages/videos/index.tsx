@@ -21,7 +21,7 @@ export const VideosList = () => {
     <div>
       <Sidebar></Sidebar>
       <div className={"w-full"}>
-        <div className="ml-16">
+        <div className="ml-14">
           <DashboardVideosRow label={"Videos"} cards={videos}></DashboardVideosRow>
           <DashboardVideosRow label={"Videos"} cards={videos}></DashboardVideosRow>
           <DashboardVideosRow label={"Videos"} cards={videos}></DashboardVideosRow>

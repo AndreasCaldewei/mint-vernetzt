@@ -31,18 +31,6 @@ export const Video = () => {
           ></iframe>
         </div>
 
-        <p className={"mt-4"}>
-          <Link href={Routes.VideosPage()}>
-            <a
-              className={
-                "cursor-pointer text-primary underline ml-4 pt-10 mb-7 hover:text-secondary"
-              }
-            >
-              Zurück zur Videoübersicht
-            </a>
-          </Link>
-        </p>
-
         <h3
           className={
             "font-montserrat text-primary font-bold text-5xl w-1/3 bg-primary5 -mx-2 mb-5 mt-5 py-4 pl-10 rounded-tr-full rounded-br-full"

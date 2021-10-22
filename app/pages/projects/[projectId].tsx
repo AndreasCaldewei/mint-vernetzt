@@ -3,7 +3,7 @@ import { Head, Link, useRouter, useQuery, useParam, BlitzPage, useMutation, Rout
 import Layout from "app/core/layouts/Layout"
 import getProject from "app/projects/queries/getProject"
 import deleteProject from "app/projects/mutations/deleteProject"
-import ProjectLayout from "../../projects/layouts/ArticleLayout"
+import ProjectLayout from "../../projects/layouts/ProjectLayout"
 import Button from "../../../components/atoms/Button"
 import Fallback from "../../../components/atoms/Fallback"
 

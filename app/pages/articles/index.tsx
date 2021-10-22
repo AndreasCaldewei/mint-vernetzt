@@ -22,7 +22,7 @@ export const ArticlesList = () => {
     <div>
       <Sidebar></Sidebar>
       <div className={"w-full"}>
-        <div className="ml-16">
+        <div className="ml-14">
           <DashboardArticlesRow label={"Artikel"} cards={articles}></DashboardArticlesRow>
           <DashboardArticlesRow label={"Artikel"} cards={articles}></DashboardArticlesRow>
           <DashboardArticlesRow label={"Artikel"} cards={articles}></DashboardArticlesRow>

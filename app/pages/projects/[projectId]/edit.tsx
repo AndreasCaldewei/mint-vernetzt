@@ -4,7 +4,7 @@ import Layout from "app/core/layouts/Layout"
 import getProject from "app/projects/queries/getProject"
 import updateProject from "app/projects/mutations/updateProject"
 import { ProjectForm, FORM_ERROR } from "app/projects/components/ProjectForm"
-import ProjectLayout from "../../../projects/layouts/ArticleLayout"
+import ProjectLayout from "../../../projects/layouts/ProjectLayout"
 import Fallback from "../../../../components/atoms/Fallback"
 
 export const EditProject = () => {
