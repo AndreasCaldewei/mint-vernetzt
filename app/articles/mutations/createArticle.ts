@@ -6,6 +6,7 @@ import { useUser } from "../../../utils/useUset"
 const CreateArticle = z.object({
   title: z.string(),
   body: z.string(),
+  url: z.string().optional(),
 })
 
 export default resolver.pipe(

@@ -23,15 +23,6 @@ export function VideoForm<S extends z.ZodType<any, any>>(props: FormProps<S>) {
       />
       <LabeledTextField name="title" label="Titel" placeholder="Titel" />
       <LabeledTextField name="body" label="Text" placeholder="Text" />
-
-      <Field name="favoriteColor" component="select">
-        <option />
-        {projects.map((project: any) => (
-          <option value={project} key={project.id}>
-            {project.name}
-          </option>
-        ))}
-      </Field>
     </Form>
   )
 }

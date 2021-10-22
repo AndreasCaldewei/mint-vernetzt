@@ -48,7 +48,7 @@ const ProjectsPage: BlitzPage = () => {
   )
 }
 
-ProjectsPage.authenticate = true
+ProjectsPage.authenticate = { redirectTo: "/signin" }
 ProjectsPage.getLayout = (page) => <Layout>{page}</Layout>
 
 export default ProjectsPage

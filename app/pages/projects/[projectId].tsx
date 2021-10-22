@@ -91,7 +91,7 @@ const ShowProjectPage: BlitzPage = () => {
   )
 }
 
-ShowProjectPage.authenticate = true
+ShowProjectPage.authenticate = { redirectTo: "/signin" }
 ShowProjectPage.getLayout = (page) => (
   <Layout>
     <ProjectLayout>{page}</ProjectLayout>

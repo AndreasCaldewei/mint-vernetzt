@@ -36,7 +36,7 @@ export const Video = () => {
             "font-montserrat text-primary font-bold text-5xl w-2/3 bg-primary5 -mx-2 mb-5 mt-5 py-4 pl-10 rounded-tr-full rounded-br-full"
           }
         >
-          {video.title} aus {video.projectId}
+          {video.title}
         </h3>
         <p
           className={
@@ -102,7 +102,7 @@ const ShowVideoPage: BlitzPage = () => {
   )
 }
 
-ShowVideoPage.authenticate = true
+ShowVideoPage.authenticate = { redirectTo: "/signin" }
 ShowVideoPage.getLayout = (page) => (
   <Layout>
     <VideoLayout>{page}</VideoLayout>

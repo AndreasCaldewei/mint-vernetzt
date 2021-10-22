@@ -45,6 +45,7 @@ const Home: BlitzPage = () => {
   )
 }
 
+Home.authenticate = { redirectTo: "/signin" }
 Home.suppressFirstRenderFlicker = true
 Home.getLayout = (page) => <Layout>{page}</Layout>
 

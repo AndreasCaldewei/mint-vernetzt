@@ -13,10 +13,9 @@ const Layout = ({ title, children }: LayoutProps) => {
     <>
       <Head>
         <title>{title || "MINTFLIX"}</title>
-        <Navbar></Navbar>
         {/* <link rel="icon" href="/favicon.ico" /> */}
       </Head>
-
+      <Navbar></Navbar>
       <Suspense fallback={<Fallback />}>{children}</Suspense>
     </>
   )

@@ -14,16 +14,6 @@ const NewArticlePage: BlitzPage = () => {
         <title>MINTFLIX | Artikel schreiben</title>
       </Head>
 
-      <p className={"mt-3"}>
-        <Link href={Routes.ArticlesPage()}>
-          <a
-            className={"cursor-pointer text-primary underline ml-4 pt-10 mb-7 hover:text-secondary"}
-          >
-            Zurück zur Artikelübersicht
-          </a>
-        </Link>
-      </p>
-
       <h3
         className={
           "font-montserrat text-primary font-bold text-5xl bg-primary5 -mx-2 mb-5 mt-5 py-4 pl-10"
@@ -57,7 +47,8 @@ const NewArticlePage: BlitzPage = () => {
   )
 }
 
-NewArticlePage.authenticate = true
+NewArticlePage.authenticate = { redirectTo: "/signin" }
+
 NewArticlePage.getLayout = (page) => (
   <Layout title={"MINTFLIX | Neuen Artikle schreiben"}>
     <ArticleLayout>{page}</ArticleLayout>

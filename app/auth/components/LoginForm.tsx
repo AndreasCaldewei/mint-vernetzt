@@ -24,7 +24,7 @@ export const LoginForm = (props: LoginFormProps) => {
             props.onSuccess?.()
           } catch (error: any) {
             if (error instanceof AuthenticationError) {
-              return { [FORM_ERROR]: "Sorry, those credentials are invalid" }
+              return { [FORM_ERROR]: "Email und Passwort stimmen nicht überein." }
             } else {
               return {
                 [FORM_ERROR]:
@@ -34,9 +34,9 @@ export const LoginForm = (props: LoginFormProps) => {
           }
         }}
       >
-        <LabeledTextField name="email" label="Email address"></LabeledTextField>
+        <LabeledTextField name="email" label="Email Adresse"></LabeledTextField>
 
-        <LabeledTextField name="password" label="Password" type="password"></LabeledTextField>
+        <LabeledTextField name="password" label="Passwort" type="password"></LabeledTextField>
 
         <div className="flex items-center justify-between">
           <div className="flex items-center">
@@ -47,20 +47,22 @@ export const LoginForm = (props: LoginFormProps) => {
               className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
             />
             <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
-              Remember me
+              Eingeloggt bleiben
             </label>
           </div>
 
           <div className="text-sm">
-            <a href="forgot-password" className="font-medium text-indigo-600 hover:text-indigo-500">
-              Forgot your password?
-            </a>
+            <Link href={Routes.SignupPage()}>
+              <a className="font-medium text-primary hover:text-secondary">
+                Noch nicht registriert?
+              </a>
+            </Link>
           </div>
         </div>
 
         <div>
           <Button type="submit" isLoading={isLoading}>
-            Sign in
+            Einloggen
           </Button>
         </div>
       </Form>

@@ -19,13 +19,22 @@ export const Article = () => {
         <title>MINTFLIX | {article.title}</title>
       </Head>
 
+      <div className={"-ml-2 -mr-2 -mt-2"}>
+        {article?.url && (
+          <img
+            className={"w-full h-[600px] rounded-tl rounded-tr object-cover"}
+            src={article.url!}
+          ></img>
+        )}
+      </div>
+
       <div>
         <h3
           className={
             "font-montserrat text-primary font-bold text-5xl w-2/3 bg-primary5 -mx-2 mb-5 mt-3 py-4 pl-10 rounded-tr-full rounded-br-full"
           }
         >
-          {article.title} aus {article.projectId}
+          {article.title}
         </h3>
         <p
           className={
@@ -91,7 +100,7 @@ const ShowArticlePage: BlitzPage = () => {
   )
 }
 
-ShowArticlePage.authenticate = true
+ShowArticlePage.authenticate = { redirectTo: "/signin" }
 ShowArticlePage.getLayout = (page) => (
   <Layout>
     <ArticleLayout>{page}</ArticleLayout>

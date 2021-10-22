@@ -25,15 +25,6 @@ export const EditVideo = () => {
       <Head>
         <title>MINTFLIX | Edit Video {video.title}</title>
       </Head>
-      <p className={"mt-3"}>
-        <Link href={Routes.ArticlesPage()}>
-          <a
-            className={"cursor-pointer text-primary underline ml-4 pt-10 mb-7 hover:text-secondary"}
-          >
-            Zurück zur Artikelübersicht
-          </a>
-        </Link>
-      </p>
 
       <div>
         <h3
@@ -84,7 +75,7 @@ const EditVideoPage: BlitzPage = () => {
   )
 }
 
-EditVideoPage.authenticate = true
+EditVideoPage.authenticate = { redirectTo: "/signin" }
 EditVideoPage.getLayout = (page) => (
   <Layout>
     <VideoLayout>{page}</VideoLayout>

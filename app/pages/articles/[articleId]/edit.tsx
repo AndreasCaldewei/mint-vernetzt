@@ -26,16 +26,6 @@ export const EditArticle = () => {
         <title>MINTFLIX | Edit Article {article.title}</title>
       </Head>
 
-      <p className={"mt-3"}>
-        <Link href={Routes.ArticlesPage()}>
-          <a
-            className={"cursor-pointer text-primary underline ml-4 pt-10 mb-7 hover:text-secondary"}
-          >
-            Zurück zur Artikelübersicht
-          </a>
-        </Link>
-      </p>
-
       <div>
         <h3
           className={
@@ -85,7 +75,7 @@ const EditArticlePage: BlitzPage = () => {
   )
 }
 
-EditArticlePage.authenticate = true
+EditArticlePage.authenticate = { redirectTo: "/signin" }
 EditArticlePage.getLayout = (page) => (
   <Layout>
     <ArticleLayout>{page}</ArticleLayout>

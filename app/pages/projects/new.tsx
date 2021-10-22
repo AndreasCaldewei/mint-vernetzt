@@ -14,16 +14,6 @@ const NewProjectPage: BlitzPage = () => {
         <title>MINTFLIX | Create Project</title>
       </Head>
 
-      <p className={"mt-3"}>
-        <Link href={Routes.ProjectsPage()}>
-          <a
-            className={"cursor-pointer text-primary underline ml-4 pt-10 mb-7 hover:text-secondary"}
-          >
-            Zurück zur Projektübersicht
-          </a>
-        </Link>
-      </p>
-
       <h3
         className={
           "font-montserrat text-primary font-bold text-5xl bg-primary5 -mx-2 mb-5 mt-5 py-4 pl-10"
@@ -57,7 +47,7 @@ const NewProjectPage: BlitzPage = () => {
   )
 }
 
-NewProjectPage.authenticate = true
+NewProjectPage.authenticate = { redirectTo: "/signin" }
 NewProjectPage.getLayout = (page) => (
   <Layout title={"MINTFLIX | Neues Projekt erstellen"}>
     <ProjectLayout>{page}</ProjectLayout>

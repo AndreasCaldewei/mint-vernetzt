@@ -26,16 +26,6 @@ export const EditProject = () => {
         <title>MINTFLIX | Edit Project {project.title}</title>
       </Head>
 
-      <p className={"mt-3"}>
-        <Link href={Routes.ProjectsPage()}>
-          <a
-            className={"cursor-pointer text-primary underline ml-4 pt-10 mb-7 hover:text-secondary"}
-          >
-            Zurück zur Projektübersicht
-          </a>
-        </Link>
-      </p>
-
       <div>
         <h3
           className={
@@ -85,7 +75,7 @@ const EditProjectPage: BlitzPage = () => {
   )
 }
 
-EditProjectPage.authenticate = true
+EditProjectPage.authenticate = { redirectTo: "/signin" }
 EditProjectPage.getLayout = (page) => (
   <Layout>
     <ProjectLayout>{page}</ProjectLayout>

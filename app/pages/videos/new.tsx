@@ -14,16 +14,6 @@ const NewVideoPage: BlitzPage = () => {
         <title>MINTFLIX | Create Video</title>
       </Head>
 
-      <p className={"mt-3"}>
-        <Link href={Routes.VideosPage()}>
-          <a
-            className={"cursor-pointer text-primary underline ml-4 pt-10 mb-7 hover:text-secondary"}
-          >
-            Zurück zur Videoübersicht
-          </a>
-        </Link>
-      </p>
-
       <h3
         className={
           "font-montserrat text-primary font-bold text-5xl bg-primary5 -mx-2 mb-5 mt-5 py-4 pl-10"
@@ -57,7 +47,7 @@ const NewVideoPage: BlitzPage = () => {
   )
 }
 
-NewVideoPage.authenticate = true
+NewVideoPage.authenticate = { redirectTo: "/signin" }
 NewVideoPage.getLayout = (page) => (
   <Layout title={"MINTFLIX | Neues Video erstellen"}>
     <VideoLayout>{page}</VideoLayout>

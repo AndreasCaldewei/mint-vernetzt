@@ -20,15 +20,11 @@ export function ArticleForm<S extends z.ZodType<any, any>>(props: FormProps<S>) 
     <Form<S> {...props}>
       <LabeledTextField name="title" label="Titel" placeholder="Titel" />
       <LabeledTextField name="body" label="Text" placeholder="Text" />
-
-      <Field name="projectId" component="select">
-        <option />
-        {projects.map((project: any) => (
-          <option value={parseInt(project.id)} key={parseInt(project.id)}>
-            {project.id}
-          </option>
-        ))}
-      </Field>
+      <LabeledTextField
+        name="url"
+        label="Titel Bild"
+        placeholder="https://i.ds.at/MxdaKg/rs:fill:750:0/plain/2021/07/29/572c4830-721d-11eb-bb63-96959c3b62f2.jpg"
+      />
     </Form>
   )
 }

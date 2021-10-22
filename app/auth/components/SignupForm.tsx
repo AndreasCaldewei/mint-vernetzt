@@ -1,4 +1,4 @@
-import { Head, useMutation } from "blitz"
+import { Head, Link, Routes, useMutation } from "blitz"
 import { LabeledTextField } from "app/core/components/LabeledTextField"
 import { Form, FORM_ERROR } from "app/core/components/Form"
 import signup from "app/auth/mutations/signup"
@@ -24,19 +24,29 @@ export const SignupForm = (props: SignupFormProps) => {
           } catch (error: any) {
             if (error.code === "P2002" && error.meta?.target?.includes("email")) {
               // This error comes from Prisma
-              return { email: "This email is already being used" }
+              return { email: "Diese Email ist bereits vergeben." }
             } else {
               return { [FORM_ERROR]: error.toString() }
             }
           }
         }}
       >
-        <LabeledTextField name="email" label="Email address"></LabeledTextField>
+        <LabeledTextField name="email" label="Email Adresse"></LabeledTextField>
 
-        <LabeledTextField name="password" label="Password" type="password"></LabeledTextField>
+        <LabeledTextField name="password" label="Passwort" type="password"></LabeledTextField>
+
+        <div className="flex items-center justify-between">
+          <div className="text-sm">
+            <Link href={Routes.LoginPage()}>
+              <a className="font-medium text-primary hover:text-secondary">
+                Du hast bereits ein Konto?
+              </a>
+            </Link>
+          </div>
+        </div>
 
         <div>
-          <Button type="submit">Create Account</Button>
+          <Button type="submit">Konto erstellen</Button>
         </div>
       </Form>
     </div>

@@ -6,7 +6,6 @@ const UpdateVideo = z.object({
   id: z.number(),
   url: z.string(),
   title: z.string(),
-  projectId: z.number(),
 })
 
 export default resolver.pipe(

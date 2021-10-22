@@ -47,7 +47,7 @@ const VideosPage: BlitzPage = () => {
   )
 }
 
-VideosPage.authenticate = true
+VideosPage.authenticate = { redirectTo: "/signin" }
 VideosPage.getLayout = (page) => <Layout>{page}</Layout>
 
 export default VideosPage
